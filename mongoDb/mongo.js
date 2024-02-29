@@ -1,12 +1,8 @@
-const mongoose = require('mongoose');
 require('dotenv').config();
-process.on('uncaughtException', function (err) {
-    console.error((new Date).toUTCString() + ' uncaughtException:', err.message);
-    console.error(err.stack);
-    process.exit(1);
-});
+const mongoose = require('mongoose');
+
 //.......................................................
-mongoose.connect( process.env.MONGO_DB_URL , { useNewUrlParser: true});
+mongoose.connect( process.env.MONGO_URI , { useNewUrlParser: true});
 // mongoose.connect( process.env.MONGO_DB_LOCAL_URL , { useNewUrlParser: true});
 
 const db = mongoose.connection;
